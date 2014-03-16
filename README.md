@@ -1,6 +1,6 @@
 kenum
 ====
-PHP 5.5+ enumerator pattern implementation
+PHP 5.5+ enumerator pattern implementation 
 
 [![Build Status](https://travis-ci.org/jgswift/kenum.png?branch=master)](https://travis-ci.org/jgswift/kenum)
 
