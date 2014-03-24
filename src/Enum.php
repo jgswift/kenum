@@ -19,7 +19,7 @@ namespace kenum {
         {
             $constants = self::getConstants();
 
-            foreach ($constants as $name => $value) {
+            foreach ($constants as $value) {
                 if (!is_null($find_value) && $value == $find_value) {
                     return true;
                 }
