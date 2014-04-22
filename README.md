@@ -3,6 +3,7 @@ kenum
 PHP 5.5+ enumerator pattern implementation 
 
 [![Build Status](https://travis-ci.org/jgswift/kenum.png?branch=master)](https://travis-ci.org/jgswift/kenum)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jgswift/kenum/badges/quality-score.png?s=642a4d807e7f71d0ac6b9781d40b8bf47a8a547e)](https://scrutinizer-ci.com/g/jgswift/kenum/)
 
 ## Installation
 
