@@ -4,14 +4,16 @@ namespace kenum\Enum {
     
     abstract class Base implements qtil\Interfaces\Comparable, kenum\Interfaces\Enum {
         use kenum\Enum;
-
+        
         /**
          * Default constructor for base enum
          * @param mixed $data
          */
         function __construct($data=null) {
+            $property = Registry::getAccessProperty($this);
+            
             if(!is_null($data)) {
-                $this->data = $data;
+                $this->{$property} = $data;
             }
         }
 
@@ -21,10 +23,11 @@ namespace kenum\Enum {
          * @return boolean
          */
         public function equals($compare) {
+            $property = Registry::getAccessProperty($this);
             if($compare instanceof kenum\Interfaces\Enum) {
                 $compare = $compare->value();
             }
-            return ($this->data == $compare) ? true : false;
+            return ($this->{$property} == $compare) ? true : false;
         }
 
         /**
@@ -33,11 +36,12 @@ namespace kenum\Enum {
          * @return mixed
          */
         public function value($value = null) {
+            $property = Registry::getAccessProperty($this);
             if(!is_null($value) && in_array($value,self::values())) {
-                $this->data = $value;
+                $this->{$property} = $value;
             }
 
-            return $this->data;
+            return $this->{$property};
         }
 
         /**
@@ -45,11 +49,12 @@ namespace kenum\Enum {
          * @return string
          */
         public function __toString() {
+            $property = Registry::getAccessProperty($this);
             $constants = self::getConstants();
 
             $results = [];
             foreach($constants as $name => $flag) {
-                if($this->data === $flag) {
+                if($this->{$property} === $flag) {
                     $results[] = $name;
                 }
             }
