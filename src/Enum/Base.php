@@ -31,20 +31,6 @@ namespace kenum\Enum {
         }
 
         /**
-         * Retrieve enum raw value or set new enum raw value
-         * @param mixed $value
-         * @return mixed
-         */
-        public function value($value = null) {
-            $property = Registry::getAccessProperty($this);
-            if(!is_null($value) && in_array($value,self::values())) {
-                $this->{$property} = $value;
-            }
-
-            return $this->{$property};
-        }
-
-        /**
          * Builds enum string representation using names
          * @return string
          */

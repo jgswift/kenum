@@ -15,8 +15,7 @@ namespace kenum {
          * @param mixed $find_value
          * @return boolean
          */
-        public static function defined($find_value = null) 
-        {
+        public static function defined($find_value = null) {
             $constants = self::getConstants();
 
             foreach ($constants as $value) {
@@ -79,7 +78,7 @@ namespace kenum {
          */
         public function value($value = null) {
             $property = Enum\Registry::getAccessProperty($this);
-            if( is_null( $value )) {
+            if(is_null($value)) {
                 return $this->{$property};
             } else {
                 $this->{$property} = $value;

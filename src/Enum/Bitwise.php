@@ -49,22 +49,6 @@ namespace kenum\Enum {
         }
 
         /**
-         * Helper method to retrieve and set enum value
-         * @param mixed $value
-         * @return mixed
-         */
-        public function value($value = null) {
-            $property = qtil\Access\Registry::getAccessProperty($this);
-            
-            if(!is_null($value)) {
-                $this->{$property} = $value;
-                return $this;
-            }
-
-            return $this->{$property};
-        }
-
-        /**
          * adds flag to bitwise enum
          * @param mixed $flag
          * @return \kenum\Enum\Bitwise
