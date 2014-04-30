@@ -17,7 +17,7 @@ namespace kenum\Enum {
 
         /**
          * Checks equality between enums
-         * @param Base $compare
+         * @param Base|integer|string $compare
          * @return boolean
          */
         public function equals($compare) {
