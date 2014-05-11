@@ -31,7 +31,7 @@ namespace kenum {
          * Retrieves the names of local constants
          * @return array
          */
-        public static function names() {
+        public function names() {
             return array_keys($this->getConstants());
         }
 
