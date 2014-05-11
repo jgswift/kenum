@@ -83,7 +83,7 @@ namespace kenum\Enum {
          * @return string
          */
         public function __toString() {
-            $constants = self::getConstants();
+            $constants = $this->getConstants();
 
             $results = [];
             

@@ -6,7 +6,7 @@ namespace kenum {
          * Retrieves an array of constants defined locally
          * @return array
          */
-        private static function getConstants() {
+        public function getConstants() {
             return Enum\Registry::getConstants(get_called_class());
         }
 
@@ -15,8 +15,8 @@ namespace kenum {
          * @param mixed $find_value
          * @return boolean
          */
-        public static function defined($find_value = null) {
-            $constants = self::getConstants();
+        public function defined($find_value = null) {
+            $constants = $this->getConstants();
 
             foreach ($constants as $value) {
                 if (!is_null($find_value) && $value == $find_value) {
@@ -32,15 +32,15 @@ namespace kenum {
          * @return array
          */
         public static function names() {
-            return array_keys(self::getConstants());
+            return array_keys($this->getConstants());
         }
 
         /**
          * Retrieves the values of local constants
          * @return array
          */
-        public static function values() {
-            return array_values(self::getConstants());
+        public function values() {
+            return array_values($this->getConstants());
         }
 
         /**
@@ -52,7 +52,7 @@ namespace kenum {
             $property = Enum\Registry::getAccessProperty($this);
             
             if(self::defined($compare)) {
-                $constants = self::getConstants();
+                $constants = $this->getConstants();
                 
                 $value = $this->{$property};
                 

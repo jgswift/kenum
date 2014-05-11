@@ -9,7 +9,7 @@ namespace kenum\Enum {
          * Default constructor for base enum
          * @param mixed $data
          */
-        function __construct($data=null) {
+        public function __construct($data=null) {
             $property = Registry::getAccessProperty($this);
             
             if(!is_null($data)) {
@@ -36,7 +36,7 @@ namespace kenum\Enum {
          */
         public function __toString() {
             $property = Registry::getAccessProperty($this);
-            $constants = self::getConstants();
+            $constants = $this->getConstants();
 
             $results = [];
             foreach($constants as $name => $flag) {

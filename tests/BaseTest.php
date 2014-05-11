@@ -1,6 +1,14 @@
 <?php
 namespace kenum\Tests {
     class BaseTest extends kenumTestCase {
+        function testInheritance() {
+            $bar = new Mock\BarEnum();
+            
+            $const = $bar->getConstants();
+            
+            $this->assertEquals(6,count($const));
+        }
+        
         function testBaseValueMutator() {
             $fooEnum = new Mock\FooEnum();
             
