@@ -14,7 +14,8 @@ php composer.phar require jgswift/kenum:dev-master
 
 ## Usage
 
-Kenum is a simple component to provide enum behavior, both regular enums and bitwise enums are included in this package.
+Kenum is a simple component to provide enum behavior in php.  
+Both conventional enums and bitwise enums are included in this package.
 
 The following is a base Kenum minimal example
 ```php
@@ -35,14 +36,16 @@ $equals = $enum->equals(MyEnum::Option2); // returns true
 $equals = $enum->equals(new MyEnum(MyEnum::Option1)); // returns false
 ```
 
-Kenum also provides an enum implementation that uses bitwise flags, therefore allowing the enum to have multiple values at once
-Bitwise constants must be numbers in multiples of 2, example below..
+Kenum also provides an enum implementation that uses bitwise flags.
+Bitwise enums allow multiple values to be set at once
+Bitwise constants must be numbers in multiples of 2.  An example set would be 1, 2, 4, 8, 16, 32, etc..
+
 ```php
 <?php
 class MyEnum extends kenum\Enum\Bitwise {
-    const Option1 = 0x01;
-    const Option2 = 0x02;
-    const Option3 = 0x04;
+    const Option1 = 1;
+    const Option2 = 2;
+    const Option3 = 4;
 }
 
 $enum = new MyEnum(MyEnum::Option2 | MyEnum::Option3);
