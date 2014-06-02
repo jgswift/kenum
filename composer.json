@@ -4,6 +4,7 @@
     "keywords": ["php","enum","utility","trait"],
     "license": "MIT",
     "type": "library",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Josh Swift",

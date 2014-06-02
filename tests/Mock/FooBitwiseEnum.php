@@ -7,5 +7,7 @@ namespace kenum\Tests\Mock {
         const Option2 = 0x02;
         const Option3 = 0x04;
         const Option4 = 0x08;
+        
+        public $data;
     }
 }
