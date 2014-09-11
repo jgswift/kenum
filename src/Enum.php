@@ -42,6 +42,15 @@ namespace kenum {
         public function values() {
             return array_values($this->getConstants());
         }
+        
+        /**
+         * Alias for isEnumState
+         * @param mixed $compare
+         * @return boolean
+         */
+        public function equals($compare) {
+            return $this->isEnumState($compare);
+        }
 
         /**
          * Checks if enum matches given state
