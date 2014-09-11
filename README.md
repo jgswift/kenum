@@ -4,6 +4,9 @@ PHP 5.5+ enumerator pattern implementation
 
 [![Build Status](https://travis-ci.org/jgswift/kenum.png?branch=master)](https://travis-ci.org/jgswift/kenum)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jgswift/kenum/badges/quality-score.png?s=642a4d807e7f71d0ac6b9781d40b8bf47a8a547e)](https://scrutinizer-ci.com/g/jgswift/kenum/)
+[![Latest Stable Version](https://poser.pugx.org/jgswift/kfiltr/v/stable.svg)](https://packagist.org/packages/jgswift/kfiltr)
+[![License](https://poser.pugx.org/jgswift/kfiltr/license.svg)](https://packagist.org/packages/jgswift/kfiltr)
+[![Coverage Status](https://coveralls.io/repos/jgswift/kfiltr/badge.png?branch=master)](https://coveralls.io/r/jgswift/kfiltr?branch=master)
 
 ## Description
 
@@ -55,9 +58,9 @@ $equals = $enum->equals(new MyEnum(MyEnum::Option1)); // returns false
 
 ### Bitwise
 
-Kenum also provides an enum implementation that uses bitwise flags.
-Bitwise enums allow multiple values to be set at once
-Bitwise constants must be numbers in multiples of 2.  An example set would be 1, 2, 4, 8, 16, 32, etc..
+The bitwise implementation that uses bitwise flags as values.
+Bitwise flags can be combined and allow multiple flags to be set at once
+Constants *must* be numbers in multiples of 2.  An example set would be 1, 2, 4, 8, 16, 32, etc..
 
 ```php
 <?php
@@ -65,6 +68,8 @@ class MyEnum extends kenum\Enum\Bitwise {
     const Option1 = 1;
     const Option2 = 2;
     const Option3 = 4;
+
+    /* etc... */
 }
 
 $enum = new MyEnum(MyEnum::Option2 | MyEnum::Option3);
@@ -80,6 +85,20 @@ var_dump($enum->equals(MyEnum::Option2 | MyEnum::Option3)); // returns true
 // check for flag
 var_dump($enum->hasFlag(MyEnum::Option2)); // returns true
 var_dump($enum->hasFlag(MyEnum::Option1)); // returns false
+```
+
+#### Constant Scalar Expressions
+
+Since php 5.6 it is possible to use expressions to define constants which conceptually simplifies them and removes the need to manually hard-code every value.
+
+```php
+class MyEnum extends kenum\Enum\Bitwise {
+    const Option1 = 1;
+    const Option2 = self::Option1 * 2; // 2
+    const Option3 = self::Option2 * 2; // 4
+    const Option4 = self::Option4 * 2; // 8
+    /* etc... */
+}
 ```
 
 ### Custom Enum
