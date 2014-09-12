@@ -10,9 +10,7 @@ namespace kenum\Enum {
      * const OPTION4 = 0x0008;
      * const OPTION5 ...
      */
-    abstract class Bitwise implements qtil\Interfaces\Comparable, kenum\Interfaces\Enum, kenum\Interfaces\Flagable {
-        use kenum\Enum;
-        
+    abstract class Bitwise extends Base {
         /**
          * Default enum constructor
          * @param mixed $data
@@ -21,20 +19,6 @@ namespace kenum\Enum {
             if(is_numeric($data)) {
                 $this->value($data);
             }
-        }
-
-        /**
-         * Comparable implementation
-         * @param mixed $compare
-         * @return boolean
-         */
-        public function equals($compare) {
-            if($compare instanceof kenum\Interfaces\Enum) {
-                $compare = $compare->value();
-            }
-            
-            $property = qtil\Access\Registry::getAccessProperty($this);
-            return ($this->{$property} === (int)$compare) ? true : false;
         }
 
         /**
